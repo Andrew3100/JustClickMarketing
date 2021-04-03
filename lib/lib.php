@@ -1,6 +1,25 @@
 
 <?php
 
+function database_connect() {
+    $connect = 'Успешно';
+    $db_host = "localhost";
+    $db_user = "root"; // Логин БД
+    $db_password = "root"; // Пароль БД
+    $db_base = 'jc_database'; // Имя БД
+
+// Подключение к базе данных
+    $mysqli = new mysqli($db_host, $db_user, $db_password, $db_base);
+    $mysqli->set_charset("utf8");
+    if ($mysqli->connect_error) {
+        $connect = 'Ну такое';
+    }
+    return $connect;
+}
+
+
+
+
 include "bootstrap_template/template.html";
 
 /*На вход передаём цвет шапки*/
@@ -45,6 +64,24 @@ function GetHeader($color) {
     ';
     return $header;
 }
+
+
+/*Переключатели круглый и квдартный*/
+function GetRoundSwitch() {
+    $switch = '<label class="switch">
+          <input type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>';
+    return $switch;
+}
+function GetSquareSwitch() {
+    $switch = '<label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider"></span>
+    </label>';
+    return $switch;
+}
+
 ?>
 
 

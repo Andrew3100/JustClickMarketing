@@ -22,5 +22,6 @@ echo GetHeader($header_color);
 /*Выводим контент*/
 include 'lib/special_for_body.php';
 
+database_connect();
 ?>
 
