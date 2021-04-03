@@ -15,10 +15,12 @@ navbar navbar-dark bg-primary
                       dark - темная
  -
 */
-/*Передаём тёный цвет шапки*/
+/*Передаём тёмный цвет шапки*/
 $header_color = 'navbar navbar-dark bg-dark';
 echo GetHeader($header_color);
+
 /*Выводим контент*/
 include 'lib/special_for_body.php';
+
 ?>
 

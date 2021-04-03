@@ -12,39 +12,39 @@
 <div class="container-fluid" style="padding: 0">
     <div class="row">
         <!--Боковые вкладки-->
-        <div class="col-1 text-center" style="background-color: #343a40">
+        <div class="col-1 text-center bg-dark" >
             <div class="row">
 
             </div><br>
             <div class="row">
-                <a href="index.php?voronka=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?voronka=1"><p style="color: white">Воронки</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?magazine=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?magazine=1"><p style="color: white">Магазин</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?site=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?site=1"><p style="color: white">Сайт</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?tgm=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?tgm=1"><p style="color: white">Рассылки</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?crm=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?crm=1"><p style="color: white">CRM</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?notes=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?notes=1"><p style="color: white">Задачи</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?courses=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?courses=1"><p style="color: white">Курсы</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?analitics=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?analitics=1"><p style="color: white">Аналитика</p></a>
             </div><br>
             <div class="row">
-                <a href="index.php?partners=1"><p style="color: white">Иконка</p></a>
+                <a href="index.php?partners=1"><p style="color: white">Партнёрка</p></a>
             </div><br>
         </div>
-        <div class="col-11">
+        <div class="col-11"><br>
             <!--Выполняем код файла-->
             <?php GetLinkName() ?>
         </div>
