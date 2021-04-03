@@ -1,3 +1,4 @@
+
 <?php
 
 include "bootstrap_template/template.html";
@@ -44,3 +45,7 @@ function GetHeader($color) {
     ';
     return $header;
 }
+?>
+
+
+
