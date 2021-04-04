@@ -1,9 +1,11 @@
 <?php
+
 /*Бутстрап*/
 include "bootstrap_template/template.html";
 /*Тут хранятся все самописные функции*/
 require_once 'lib/lib.php';
-
+/*Коннект к БД*/
+database_connect();
 /*Варианты управления цветом шапки
 navbar navbar-dark bg-primary
                       secondary - серая
@@ -22,6 +24,5 @@ echo GetHeader($header_color);
 /*Выводим контент*/
 include 'lib/special_for_body.php';
 
-database_connect();
 ?>
 

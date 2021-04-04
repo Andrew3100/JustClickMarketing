@@ -67,15 +67,15 @@ function GetHeader($color) {
 
 
 /*Переключатели круглый и квдартный*/
-function GetRoundSwitch() {
-    $switch = '<label class="switch">
-          <input type="checkbox" checked>
+function GetRoundSwitch($width,$height) {
+    $switch = '<label class="switch" style="height: '.$height.'; width: '.$width.';">
+          <input class="bg-dark" type="checkbox" checked>
           <span class="slider round"></span>
         </label>';
     return $switch;
 }
-function GetSquareSwitch() {
-    $switch = '<label class="switch">
+function GetSquareSwitch($width,$height) {
+    $switch = '<label class="switch" style="height: '.$height.'; width: '.$width.'; background-color: yellow">
       <input type="checkbox" checked>
       <span class="slider"></span>
     </label>';
