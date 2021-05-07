@@ -1,29 +1,11 @@
 
 <?php
 
-function database_connect() {
-    $connect = 'Успешно';
-    $db_host = "localhost";
-    $db_user = "root"; // Логин БД
-    $db_password = "root"; // Пароль БД
-    $db_base = 'jc_database'; // Имя БД
-
-// Подключение к базе данных
-    $mysqli = new mysqli($db_host, $db_user, $db_password, $db_base);
-    $mysqli->set_charset("utf8");
-    if ($mysqli->connect_error) {
-        $connect = 'Ну такое';
-    }
-    return $connect;
-}
-
-
-
-
-include "bootstrap_template/template.html";
+isAuth();
 
 /*На вход передаём цвет шапки*/
 function GetHeader($color) {
+    include "bootstrap_template/template.html";
     $header = '
   <div class="row">
     <div class="col-1 bg-primary text-center">
@@ -79,7 +61,77 @@ function GetSquareSwitch($width,$height) {
     return $switch;
 }
 
-?>
+
+/*Проверка авторизации*/
+function isAuth() {
+    $x = true;
+    if ($_COOKIE['user']=='') {
+        echo "<script>window.location.replace('/index.html')</script>";
+        $x = false;
+        exit();
+    }
+    return $x;
+}
+
+/*Забор записей из таблицы*/
+function get_records_sql($table,$condition)
+{
+    include 'database.php';
+    if ($condition!='') {
+        $sql = "SELECT * FROM `$table` WHERE $condition";
+        $result = $mysqli->query($sql);
 
 
+    }
+    else {
+        $sql = "SELECT * FROM `$table`";
+        $result = $mysqli->query($sql);
+    }
+    return $result;
+}
 
+/*имя параметра гет*/
+function gpr() {
+    $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $url = substr($url,0,-2);
+    $get = strpos($url,'?');
+    $get = substr($url,$get+1);
+    return $get;
+}
+
+/*Получить список полей заданной таблицы*/
+function get_field_list($table_name) {
+    $field_list = array();
+    include 'database.php';
+    $sql = "SHOW COLUMNS FROM `$table_name`";
+    $res_sql = $mysqli->query($sql);
+
+
+    while ($res_sql1 = mysqli_fetch_assoc($res_sql)) {
+        $field_list[] = $res_sql1['Field'];
+    }
+    unset($field_list[0]);
+    unset($field_list[count($field_list)]);
+    return $field_list;
+}
+
+/*Выключаем режим отладки*/
+function debug() {
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(E_ALL);
+}
+
+/*Фиксирование лога*/
+function fixed_log($event) {
+    database_connect();
+    $time = date("H:i:s",time());
+    $date = date('Y-m-d',time());
+    $date = explode('-',$date);
+    $date = implode($date,'-');
+    $user = $_COOKIE['user'];
+    $fixed_log = $mysqli->query("INSERT INTO logs (`event`,`date`,`time`,`username`) VALUES ('$event','$date','$time','$user')");
+    /*echo '<pre>';
+    print_r("INSERT INTO logs (`event`,`date`,`time`,`username`) VALUES ('$event','$date','$time','$user')");
+    echo '</pre>';*/
+}

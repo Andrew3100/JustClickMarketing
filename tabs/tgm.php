@@ -6,7 +6,7 @@ echo '
 <div class="container">
 <div class="row">
 <div class="col">
-<table class="table table-dark bordered">
+<table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Тема письма</th>

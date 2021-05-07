@@ -5,7 +5,7 @@ include "bootstrap_template/template.html";
 /*Тут хранятся все самописные функции*/
 require_once 'lib/lib.php';
 /*Коннект к БД*/
-database_connect();
+include 'database.php';
 /*Варианты управления цветом шапки
 navbar navbar-dark bg-primary
                       secondary - серая

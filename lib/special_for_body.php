@@ -70,7 +70,7 @@ function GetLinkName() {
         $get_file_name = 'magazine';
     }
     if ($_GET['site']) {
-        $get_file_name = 'notes';
+        $get_file_name = 'site';
     }
     if ($_GET['tgm']) {
         $get_file_name = 'tgm';

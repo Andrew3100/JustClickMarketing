@@ -2,7 +2,7 @@
 $v_size = 'style="width: 150px; height: 150px;"';
 require_once 'lib/lib.php';
 include 'bootstrap_template/template.html';
-database_connect();
+
 $switch = GetRoundSwitch('44px','17px');
 echo '
 <div class="container-fluid">
