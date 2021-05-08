@@ -1,7 +1,7 @@
 <?php
 /*Выводим кнопки*/
 echo '
-<div class="container">
+<div class="container-fluid">
     <div class="row">
             <!--Первая кнопка-->
             <button class="btn btn-primary btn-sm text-center" style="border-radius: 100px; width: 120px;">Продукты</button>
@@ -25,7 +25,7 @@ echo '
 
 $switch = GetRoundSwitch('44px','17px');
 echo "<br>
-<div class='container'>
+<div class='container-fluid'>
     <div class='row'>
         <table class='table table-hover'>
             <thead>

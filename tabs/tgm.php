@@ -3,7 +3,7 @@
 include 'bootstrap_template/template.html';
 
 echo '
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 <div class="col">
 <table class="table table-hover">
