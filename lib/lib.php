@@ -74,18 +74,23 @@ function isAuth() {
 }
 
 /*Забор записей из таблицы*/
-function get_records_sql($table,$condition)
+function get_records_sql($table,$condition,$print = 0)
 {
     include 'database.php';
     if ($condition!='') {
         $sql = "SELECT * FROM `$table` WHERE $condition";
         $result = $mysqli->query($sql);
-
+        if (($print) == 1) {
+            print_r($sql);
+        }
 
     }
     else {
         $sql = "SELECT * FROM `$table`";
         $result = $mysqli->query($sql);
+        if (($print) == 1) {
+            print_r($sql);
+        }
     }
     return $result;
 }

@@ -81,9 +81,9 @@
 
 <div class="tabs">
     <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
-    <label for="tab-btn-2">Google</label>
+    <label for="tab-btn-2">Yandex</label>
     <input type="radio" name="tab-btn" id="tab-btn-2" value="">
-    <label for="tab-btn-1">Yandex</label>
+    <label for="tab-btn-1">Google</label>
 
     <div id="content-1">
         <?php

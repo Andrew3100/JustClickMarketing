@@ -1,60 +1,71 @@
 <?php
-echo '
+$user = $_COOKIE['user'];
+
+$user_id = get_records_sql('users',"login = '$user'");
+
+while ($user_id1 = mysqli_fetch_assoc($user_id)) {
+    ($id = $user_id1['id']);
+}
+$balance = get_records_sql("balances_info","id = '$id' AND service = 'google'");
+
+while ($balance1 = mysqli_fetch_assoc($balance)) {
+    $balance_data = $balance1['balance'];
+    $day_limit = $balance1['day_limit'];
+    $create = $balance1['date_create'];
+}
+
+if ($day_limit != 0) {
+    $days_col = floor($balance_data / $day_limit);
+    $warning = "<tr><td>Через $days_col дней необходимо пополнить баланс</td></tr>";
+}
+
+echo "<h5 style='text-align: center'>В этом разеле представлена информация о текущем балансе Google Аналитики</h5>";
+
+if ($day_limit == 0) {
+    unset($warning);
+}
 
 
-<div id="example_2" style="border:1px solid black; display:block;">Наш первый пример</div>
-
-<button id="example_2_1" style="display:none;">Показать</button>
-
-<button id="example_2_2" >Скрыть</button>
-
-';
-echo "<h4 style='text-align: center'>В этом разеле представлена информация о текущем балансе Google Аналитики</h4>
+echo "<br><br>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col text-center'>
+    <table class='table table-hover' style='width: 400px; margin: auto'>
+        <tr><td>Текущий баланс: $balance_data</td></tr>
+        <tr><td>Ежедневное списание: $day_limit</td></tr>
+        $warning
+        <tr><td><a style='color: green;' data-toggle='modal' data-target='#exampleModal'>Внести данные о пополнении баланса</a></td></tr>
+    </table>    
+            </div>
+        </div>
+    </div>
 ";
 
 echo '
-<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-      </h2>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-123      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-    Collapsible Group Item #2
-</button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-123      </div>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/tabs/scripts/add_balance_data.php">
+            <p style="text-align: center">Внимание! При внесении данных о балансе старые данные обновятся!</p>
+            <label for="exampleFormControlInput1" class="form-label">Сумма баланса</label>
+            <input name="balance_google" type="number" class="form-control" min="0" max="1000000" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput2" class="form-label">Ежедневное списание</label>
+            <input name="limit_google" type="number" class="form-control" min="0" max="100000" id="exampleFormControlInput2">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+        <button type="submit" class="btn btn-primary">Внести данные о балансе</button>
+      </div>
+        </form>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-123      </div>
-    </div>
-  </div>
-</div>
-
-';
+</div>';
 

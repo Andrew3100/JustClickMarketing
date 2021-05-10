@@ -23,7 +23,7 @@ $n = 0;
 while ($result1 = mysqli_fetch_assoc($result)) {
 
     if (is_array($result1)) {
-        $set = setcookie('user',$result1['name'],time() + 3600, "/");
+        $set = setcookie('user',$result1['login'],time() + 3600, "/");
         header('Location: index.php?voronka=1');
         exit();
         /*Установка куки на час*/
