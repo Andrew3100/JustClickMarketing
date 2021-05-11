@@ -140,3 +140,4 @@ function fixed_log($event) {
     print_r("INSERT INTO logs (`event`,`date`,`time`,`username`) VALUES ('$event','$date','$time','$user')");
     echo '</pre>';*/
 }
+

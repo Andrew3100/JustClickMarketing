@@ -6,7 +6,7 @@ $user_id = get_records_sql('users',"login = '$user'");
 while ($user_id1 = mysqli_fetch_assoc($user_id)) {
     ($id = $user_id1['id']);
 }
-$balance = get_records_sql("balances_info","id = '$id' AND service = 'google'");
+$balance = get_records_sql("balances_info","user_id = '$id' AND service = 'google'");
 
 while ($balance1 = mysqli_fetch_assoc($balance)) {
     $balance_data = $balance1['balance'];
@@ -47,7 +47,7 @@ echo '
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Гугл Аналитика</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

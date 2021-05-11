@@ -7,7 +7,7 @@ $user_id = get_records_sql('users',"login = '$user'");
 while ($user_id1 = mysqli_fetch_assoc($user_id)) {
     ($id = $user_id1['id']);
 }
-$balance = get_records_sql("balances_info","id = '$id' AND service = 'yandex'");
+$balance = get_records_sql("balances_info","user_id = '$id' AND service = 'yandex'");
 
 while ($balance1 = mysqli_fetch_assoc($balance)) {
     $balance_data = $balance1['balance'];
@@ -35,7 +35,7 @@ echo "<br><br>
         <tr><td>Текущий баланс: $balance_data</td></tr>
         <tr><td>Ежедневное списание: $day_limit</td></tr>
         $warning
-        <tr><td><a style='color: green;' data-toggle='modal' data-target='#exampleModal'>Внести данные о пополнении баланса</a></td></tr>
+        <tr><td><a style='color: green;' data-toggle='modal' data-target='#exampleModal1'>Внести данные о пополнении баланса</a></td></tr>
     </table>    
             </div>
         </div>
@@ -44,11 +44,11 @@ echo "<br><br>
 
 echo '
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Яндекс Метрика</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
