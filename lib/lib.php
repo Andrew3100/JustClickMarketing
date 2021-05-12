@@ -141,3 +141,16 @@ function fixed_log($event) {
     echo '</pre>';*/
 }
 
+function admin() {
+    $spot = false;
+    include 'database.php';
+    $login = $_COOKIE['user'];
+    $adm = $mysqli->query("SELECT * FROM users WHERE login = '$login'");
+    while ($adm1 = mysqli_fetch_assoc($adm)) {
+        $flag = $adm1['isadmin'];
+    }
+    if ($flag == 1) {
+        $spot = true;
+    }
+    return $spot;
+}
