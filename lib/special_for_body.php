@@ -52,6 +52,10 @@
             <div class="row">
                 <a href="index.php?partners=1"><p style="color: white">Партнёрка</p></a>
             </div><br>
+            <div class="row">
+                <a href="index.php?sup=1"><p style="color: white">Техническая поддержка</p></a>
+            </div><br>
+
         </div>
         <div class="col-11"><br>
             <!--Выполняем код файла-->
@@ -99,6 +103,10 @@ function GetLinkName() {
     if ($_GET['social']) {
         $get_file_name = 'social';
     }
+    if ($_GET['sup']) {
+        $get_file_name = 'support';
+    }
+
 
     /*Выполняем тот файл, на который указывает параметр в адресной строке*/
     return include "tabs/$get_file_name.php";
