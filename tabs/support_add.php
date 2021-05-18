@@ -6,9 +6,12 @@ include 'scripts/database.php';
 $username = $_COOKIE['user'];
 $date = date("Y-m-d",time());
 $time = date("H:i:s",time());
-$add_supp = $mysqli->query("INSERT INTO support_list (username,mail,`date`,`time`) VALUES ('$username','$mail','$date','$time','$header','$description')");
+$add_supp = $mysqli->query("INSERT INTO support_list (username,mail,`date`,`time`,header,description) VALUES ('$username','$mail','$date','$time','$header','$description')");
 
-if ($add_supp) {
-    echo 'добавлено';
+$mail = mail('funikov.1997@mail.ru','Тема',$description);
+if ($mail) {
+    echo 'Письмо отправлено успешно';
 }
-print_r("INSERT INTO support_list (username,mail,`date`,`time`) VALUES ('$username','$mail','$date','$time','$header','$description')");
+exit();/*
+echo "<script>alert('Благодарим за обращение! С Вами свяжутся в течение 15 по указанному адресу электронной почты')</script>";
+echo "<script>window.location.replace('/index.php?sup=1');</script>";*/

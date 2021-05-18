@@ -1,5 +1,5 @@
 <?php
-
+$text = 'Благодарим за обращение! Ответ придёт в течение 15 минут';
 echo '
 
 <div class="container">
@@ -19,11 +19,11 @@ echo '
                   <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput2" class="form-label">Что у Вас случилось?</label>
+                  <label for="exampleFormControlInput2" class="form-label">Адрес электронной почты</label>
                   <input type="email" name="mail" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
                 </div>
                 
-                <button type="submit" class="btn btn-success">Отправить запрос</button>
+                <button onclick="alert('.$text.')" type="submit" class="btn btn-success">Отправить запрос</button>
             </form>
         </div>
     </div>

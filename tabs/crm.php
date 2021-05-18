@@ -12,7 +12,7 @@ echo '
     </div><br>
     <div class="row">
         <div class="col">
-            <button class="btn btn-success" style="">Новое задание</button>
+            <button class="btn btn-success">Новое задание</button>
         </div>
         <div class="col text-right">
         <!--Первая кнопка-->
