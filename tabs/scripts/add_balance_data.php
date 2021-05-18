@@ -43,7 +43,6 @@ if (isset($balance_google) AND isset($limit_google)) {
     $sql = "UPDATE balances_info SET balance = '$balance_google',  day_limit = '$limit_google' WHERE user_id = $id AND service = 'google'";
     $update = $mysqli->query($sql);
 
-
 }
 
 if (isset($balance_yandex) AND isset($limit_yandex)) {

@@ -2,7 +2,7 @@
 
 $db_host = "localhost";
 $db_user = "root"; // Логин БД
-$db_password = ""; // Пароль БД
+$db_password = "root"; // Пароль БД
 $db_base = 'jc_database'; // Имя БД
 
 // Подключение к базе данных

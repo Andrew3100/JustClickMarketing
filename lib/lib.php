@@ -2,7 +2,7 @@
 <?php
 
 isAuth();
-
+debug();
 /*На вход передаём цвет шапки*/
 function GetHeader($color) {
     include "bootstrap_template/template.html";
