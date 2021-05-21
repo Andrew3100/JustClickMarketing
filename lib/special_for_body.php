@@ -17,43 +17,67 @@
 
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?voronka=1"><p style="color: white">Воронки</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?magazine=1"><p style="color: white">Магазин</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?site=1"><p style="color: white">Сайт</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?tgm=1"><p style="color: white">Рассылки</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?crm=1"><p style="color: white">CRM</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?notes=1"><p style="color: white">Задачи</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?context=1"><p style="color: white">Контекстная реклама</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?target=1"><p style="color: white">Таргетинговая реклама</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?social=1"><p style="color: white">Социальные сети</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?courses=1"><p style="color: white">Курсы</p></a>
+                    </div>
             </div><br>
-            <div class="row">
+            <!--<div class="row">
                 <a href="index.php?analitics=1"><p style="color: white">Аналитика</p></a>
-            </div><br>
+            </div><br>-->
             <div class="row">
+                <div class="col">
                 <a href="index.php?partners=1"><p style="color: white">Партнёрка</p></a>
+                    </div>
             </div><br>
             <div class="row">
+                <div class="col">
                 <a href="index.php?sup=1"><p style="color: white">Техническая поддержка</p></a>
+                    </div>
             </div><br>
 
         </div>

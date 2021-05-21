@@ -16,7 +16,13 @@ while ($balance1 = mysqli_fetch_assoc($balance)) {
 
 if ($day_limit != 0) {
     $days_col = floor($balance_data / $day_limit);
-    $warning = "<tr><td>Через $days_col дней необходимо пополнить баланс</td></tr>";
+    if ($days_col < 3) {
+        $color = 'red';
+    }
+    else {
+        $color = 'green';
+    }
+    $warning = "<p style='color: $color'>Через $days_col дней необходимо пополнить баланс</p>";
 }
 
 echo "<h5 style='text-align: center'>В этом разеле представлена информация о текущем балансе Google Аналитики</h5>";
@@ -27,19 +33,89 @@ if ($day_limit == 0) {
 
 
 echo "<br><br>
-    <div class='container-fluid'>
+    <div class='container'>
         <div class='row'>
             <div class='col text-center'>
-    <table class='table table-hover' style='width: 400px; margin: auto'>
-        <tr><td>Текущий баланс: $balance_data</td></tr>
-        <tr><td>Ежедневное списание: $day_limit</td></tr>
-        $warning
-        <tr><td><a style='color: green;' data-toggle='modal' data-target='#exampleModal'>Внести данные о пополнении баланса</a></td></tr>
+    <table class='table table-hover table-bordered' style='width: 100%; margin: auto'>
+        <tr>
+        <td>Текущий баланс: $balance_data</td>
+        <td>Ежедневное списание: $day_limit</td>
+        <td>$warning</td>
+        <td>
+            <a href='/tabs/doc_google.html' target='_blank'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-lg' viewBox='0 0 16 16'>
+              <path d='m10.277 5.433-4.031.505-.145.67.794.145c.516.123.619.309.505.824L6.101 13.68c-.34 1.578.186 2.32 1.423 2.32.959 0 2.072-.443 2.577-1.052l.155-.732c-.35.31-.866.434-1.206.434-.485 0-.66-.34-.536-.939l1.763-8.278zm.122-3.673a1.76 1.76 0 1 1-3.52 0 1.76 1.76 0 0 1 3.52 0z'/>
+            </svg></a>
+        </td>
+        </tr>
+        <tr><td><button class='btn btn-primary' style='color: white;' data-toggle='modal' data-target='#exampleModal1'>Внести данные о пополнении баланса</button></td></tr>
     </table>    
             </div>
         </div>
     </div>
 ";
+
+echo '<br><br>
+<div class="container">
+<h4>Статистика по Google Аналитике:<br></h4><br>
+    <div class="row">
+        <div class="col">
+            <form action="/tabs/graph.php" method="get" style="width: 400px;">
+                <label for="select" class="form-label">Выберите период</label>
+                <select name="month" id="select" class="form-select" aria-label="Default select example">
+                  <option selected>Выберите месяц</option>
+                  <option value="jan">Январь</option>
+                  <option value="feb">Февраль</option>
+                  <option value="mar">Март</option>
+                  <option value="april">Апрель</option>
+                  <option value="may">Май</option>
+                  <option value="june">Июнь</option>
+                  <option value="jule">Июль</option>
+                  <option value="aug">Август</option>
+                  <option value="sept">Сентябрь</option>
+                  <option value="oct">Октябрь</option>
+                  <option value="nov">Ноябрь</option>
+                  <option value="dec">Декабрь</option>
+                </select>
+            
+        </div>
+    </div>
+    <div class="row">
+    <div class="col"><br>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="newusers" name="data" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Отчёт по посетителям
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="age" name="data" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Отчёт по среднему возрасту
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="bad" name="data" id="flexRadioDefault3">
+          <label class="form-check-label" for="flexRadioDefault3">
+            Отчёт по соотношению отказов и оставшихся пользователей
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="sex" name="data" id="flexRadioDefault4">
+          <label class="form-check-label" for="flexRadioDefault4">
+            Отчёт по посетителям половому признаку
+          </label>
+        </div><br>
+        <button type="submit" class="btn btn-success">Сгенерировать отчёт</button>
+        </form>
+        </div>
+    </div>
+</div>
+';
+
+
+
+
+
 
 echo '
 <!-- Modal -->
